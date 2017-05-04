@@ -1,0 +1,11 @@
+<%= form_for(@room) do |f| %>
+	<%= fields_for :room_users do |ruf| %>
+		<%= ruf.label '友人リスト' %>
+		<%= ruf.collection_select :user_id, User.all, :id, :name %>
+	<% end %>
+	
+	<%= f.label :name, 'ルーム名' %>
+	<%= f.text_field :name %>
+	
+	<%= f.submit 'チャットルーム作成' %>
+<% end %>
