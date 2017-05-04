@@ -1,4 +1,4 @@
 class Message < ApplicationRecord
-  has_many :message_rooms
-  has_many :rooms, through: :message_rooms
+  belongs_to :room
+  belongs_to :user
 end
