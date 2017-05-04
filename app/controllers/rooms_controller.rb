@@ -1,9 +1,10 @@
 class RoomsController < ApplicationController
   def show
+    @messages = Message.where('id = params[:id]')
   end
   
   def index
-    @rooms = Room.all
+    @rooms = Room.all.select(:id,:name)
   end
   
   def new
