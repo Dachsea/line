@@ -2,6 +2,10 @@ class RoomsController < ApplicationController
   def show
   end
   
+  def index
+    @rooms = Room.all
+  end
+  
   def new
     @room = Room.new
     @room.room_users.build
@@ -11,8 +15,8 @@ class RoomsController < ApplicationController
     @room = Room.new(room_params)
     if @room.save
       #@roomがDBにないからビルド出来ない？
-      @room_user = @room.room_users.build(user_id: params[:room_users][:user_id])
-      @room_user.save
+      @room.room_users.create(user_id: params[:room_users][:user_id])
+      @room.room_users.create(user_id: current_user.id)
       redirect_to @room ,notice: "チャットルームが作成できました"
     else
       render :new
