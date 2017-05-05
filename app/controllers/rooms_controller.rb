@@ -11,6 +11,7 @@ class RoomsController < ApplicationController
   def new
     @room = Room.new
     @room.room_users.build
+    #自分の名前が選択ボックスに表示されないようにnotメソッド使用
     @users = User.where.not(id: current_user.id)
   end
   
