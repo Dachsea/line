@@ -1,5 +1,13 @@
-<p>Room List</p>
+<h1>Your Rooms List</h1>
 
-<% @rooms.each do |room| %>
-	<%= link_to room.name, room %><br />
+<% unless @rooms.nil? %>
+	<% @rooms.each do |room| %>
+		<%= link_to room.name, room %><br />
+	<% end %>
+<% else %>
+	<p>There are no rooms</p>
 <% end %>
+
+<hr />
+
+<%= link_to('Create a new room','rooms/new') %>

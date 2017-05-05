@@ -1,11 +1,12 @@
+<h1>Create a new chat room</h1>
 <%= form_for(@room) do |f| %>
 	<%= fields_for :room_users do |ruf| %>
-		<%= ruf.label '友人リスト' %>
-		<%= ruf.collection_select :user_id, User.all, :id, :name %>
+		<%= ruf.label 'friend list' %>
+		<%= ruf.collection_select :user_id, User.all, :id, :name %><br />
 	<% end %>
 	
-	<%= f.label :name, 'ルーム名' %>
-	<%= f.text_field :name %>
+	<%= f.label :name, 'room name', id: 'room_name' %>
+	<%= f.text_field :name %><br />
 	
-	<%= f.submit 'チャットルーム作成' %>
+	<%= f.submit 'click to create' %>
 <% end %>

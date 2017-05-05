@@ -1,10 +1,11 @@
 class RoomsController < ApplicationController
   def show
     @messages = Message.where('room_id = ?',params[:id]).order(:created_at)
+    @room = Room.find_by(id: params[:id])
   end
   
   def index
-    @rooms = Room.all.select(:id,:name)
+    @rooms = Room.joins(:room_users).where('user_id = ?',current_user.id)
   end
   
   def new
