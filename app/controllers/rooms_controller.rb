@@ -11,6 +11,7 @@ class RoomsController < ApplicationController
   def new
     @room = Room.new
     @room.room_users.build
+    @users = User.where.not(id: current_user.id)
   end
   
   def create

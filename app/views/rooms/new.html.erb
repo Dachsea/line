@@ -2,11 +2,11 @@
 <%= form_for(@room) do |f| %>
 	<%= fields_for :room_users do |ruf| %>
 		<%= ruf.label 'friend list' %>
-		<%= ruf.collection_select :user_id, User.all, :id, :name %><br />
+		<%= ruf.collection_select :user_id, @users, :id, :name %><br />
 	<% end %>
 	
-	<%= f.label :name, 'room name', id: 'room_name' %>
-	<%= f.text_field :name %><br />
+	<%= f.label :name, 'room name' %>
+	<%= f.text_field :name, id: 'room_name' %><br />
 	
 	<%= f.submit 'click to create' %>
 <% end %>
