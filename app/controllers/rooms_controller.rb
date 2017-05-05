@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   def show
-    @messages = Message.where('room_id = ?',params[:id])
+    @messages = Message.where('room_id = ?',params[:id]).order(:created_at)
   end
   
   def index
