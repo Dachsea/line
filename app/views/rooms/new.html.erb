@@ -2,11 +2,11 @@
 <%= form_for(@room) do |f| %>
 	<%= fields_for :room_users do |ruf| %>
 		<%= ruf.label 'friend list' %>
-		<%= ruf.collection_select :user_id, @users, :id, :name %><br />
+		<%= ruf.collection_select :user_id, @users, :id, :name, {prompt: 'Choose your friend'}, {class: 'form-control select select-primary select-block mbl'} %><br />
 	<% end %>
 	
 	<%= f.label :name, 'room name' %>
-	<%= f.text_field :name, id: 'room_name' %><br />
+	<%= f.text_field :name, id: 'room_name',class: "form-control" %><br />
 	
-	<%= f.submit 'click to create' %>
+	<%= f.submit 'click to create', class: "btn btn-embossed btn-primary" %>
 <% end %>

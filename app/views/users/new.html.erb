@@ -3,16 +3,16 @@
 
 <%= form_for(@user) do |f| %>
 	<%= f.label :name %>
-	<%= f.text_field :name %><br />
+	<%= f.text_field :name, class: "form-control" %><br />
 	
 	<%= f.label :email %>
-	<%= f.email_field :email %><br />
+	<%= f.email_field :email, class: "form-control" %><br />
 	
 	<%= f.label :password %>
-	<%= f.password_field :password %><br />
+	<%= f.password_field :password, class: "form-control" %><br />
 	
 	<%= f.label :password_confirmation %>
-	<%= f.password_field :password_confirmation %><br />
+	<%= f.password_field :password_confirmation, class: "form-control" %><br />
 	
-	<%= f.submit "Create a new account" %>
+	<%= f.submit "Create a new account", class: "btn btn-embossed btn-primary" %>
 <% end %>

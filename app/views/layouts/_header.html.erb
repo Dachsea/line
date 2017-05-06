@@ -1,11 +1,15 @@
-<header class="navbar">
-	<ul class="nav">
-		<li><%= link_to "Room List", root_path%></li>
-		<% if logged_in? %>
-			<li><%= link_to "#{current_user.name}'s Profile", current_user %></li>
-			<li><%= link_to "Log out", logout_path, method: "delete" %></li>
-		<% else %>
-			<li><%= link_to "Log in", login_path %></li>
-		<% end %>
-	</ul>
+<header>
+	<nav class="navbar navbar-default" role="navigation">
+	    <div class="collapse navbar-collapse" id="navbar-collapse-01">
+	      <ul class="nav navbar-nav">
+	        <li><%= link_to "Room List", root_path%></li>
+	        <% if logged_in? %>
+	          <li><%= link_to "#{current_user.name}'s Profile", current_user %></li>
+	          <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+	        <% else %>
+	          <li><%= link_to "Log in", login_path %></li>
+	        <% end %>
+	      </ul>
+	    </div>
+  	</nav>
 </header>
