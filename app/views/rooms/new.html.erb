@@ -1,9 +1,7 @@
 <h1>Create a new chat room</h1>
 <%= form_for(@room) do |f| %>
-	<%= fields_for :room_users do |ruf| %>
-		<%= ruf.label 'friend list' %>
-		<%= ruf.collection_select :user_id, @users, :id, :name, {prompt: 'Choose your friend'}, {class: 'form-control select select-primary select-block mbl'} %><br />
-	<% end %>
+	<%= f.label 'friend list' %>
+	<%= f.collection_check_boxes :user_ids, @users, :id, :name%><br />
 	
 	<%= f.label :name, 'room name' %>
 	<%= f.text_field :name, id: 'room_name',class: "form-control" %><br />
