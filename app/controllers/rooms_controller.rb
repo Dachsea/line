@@ -16,7 +16,9 @@ class RoomsController < ApplicationController
   end
   
   def create
-    @room = Room.new(room_params)
+    param = room_params
+    param[:user_ids] << current_user.id
+    @room = Room.new(param)
     if @room.save
       redirect_to @room ,notice: "チャットルームが作成できました"
     else
